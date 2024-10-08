@@ -7,7 +7,7 @@
       <form class="form w-100" action="{{ route('login') }}" method="POST" id="loginForm">
         @csrf
         <div class="mb-11">
-          <h1 class="text-gray-900 fw-bolder mb-3 fs-1">Login</h1>
+          <h1 class="text-gray-900 fw-bolder mb-3 fs-1">Sign-in to Client Area</h1>
           <div class="text-gray-500 fw-semibold fs-6">Welcome to client area, please enter your credintial</div>
         </div>
 
@@ -65,12 +65,12 @@
         </div>
         <div class="d-grid mb-10">
           <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
-            <span class="indicator-label">Login</span>
+            <span class="indicator-label">Sign-in</span>
             <span class="indicator-progress" style="display: none;">Loading... 
             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
           </button>
         </div>
-        <div class="text-gray-500 text-center fw-semibold fs-6">Not a member yet? 
+        <div class="text-gray-500 text-center fw-semibold fs-6">Not a member yet?  
         <a href="{{ route('register') }}" class="link-primary">Create a New Account</a></div>
       </form>
     </div>

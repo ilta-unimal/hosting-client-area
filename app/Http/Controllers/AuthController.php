@@ -47,7 +47,7 @@ class AuthController extends Controller
                 return redirect()->route('dashboard');
             } else {
                 Auth::logout();
-                return redirect()->route('login')->with('warning', 'Your account is not active, Plese contact your administrator');
+                return redirect()->route('login')->with('warning', 'Please activate your account');
             }
         } else {
             return redirect()->route('login')->with('error', 'Username/Email and password are incorrect, please try again');

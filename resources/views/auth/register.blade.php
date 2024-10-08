@@ -6,8 +6,8 @@
       <form class="form w-100" action="{{ route('register') }}" method="POST" id="loginForm">
         @csrf
         <div class="mb-11">
-          <h1 class="text-gray-900 fw-bolder mb-3 fs-1">Welcome</h1>
-          <div class="text-gray-500 fw-semibold fs-6">Plase</div>
+          <h1 class="text-gray-900 fw-bolder mb-3 fs-1">Welcome!</h1>
+          <div class="text-gray-500 fw-semibold fs-6">Sign-up to join our member</div>
         </div>
         <div class="fv-row mb-8">
           <input type="text" placeholder="Full Name" name="name" autocomplete="off" class="form-control bg-transparent @error('name') is-invalid @enderror" value="{{ old('name') }}" />
@@ -51,13 +51,13 @@
         </div>
         <div class="d-grid mb-10">
           <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
-            <span class="indicator-label">Register</span>
+            <span class="indicator-label">Sign-up</span>
             <span class="indicator-progress" style="display: none;">Loading... 
             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
           </button>
         </div>
         <div class="text-gray-500 text-center fw-semibold fs-6">Already registered with us? 
-        <a href="{{ route('login') }}" class="link-primary" >Login</a></div>
+        <a href="{{ route('login') }}" class="link-primary" >Sign-in</a></div>
       </form>
     </div>
   </div>

@@ -23,6 +23,10 @@ class ProfileController extends Controller
     public function profileUpdate(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required',
+            'phone' => [
+                'required',
+                Rule::unique('users')->ignore(Auth::user()->id),
+            ],
         ]);
         if ($validator->fails()) {
         return redirect()->route('profile')->with('error', 'Validation Error')->withInput()->withErrors($validator);
@@ -30,6 +34,7 @@ class ProfileController extends Controller
 
         $profile =  User::find(Auth::user()->id);
         $profile->name = $request->input('name');
+        $profile->phone = $request->input('phone');
         $profile->save();
 
         return redirect()->route('profile')->with('success', 'Berhasil mengubah profil');

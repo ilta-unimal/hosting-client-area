@@ -7,8 +7,8 @@
       <form class="form w-100" action="{{ route('forgot') }}" method="POST" id="loginForm">
         @csrf
         <div class="mb-11">
-          <h1 class="text-gray-900 fw-bolder mb-3 fs-1">Lupa Password?</h1>
-          <div class="text-gray-500 fw-semibold fs-6">Masukan email anda untuk mereset password</div>
+          <h1 class="text-gray-900 fw-bolder mb-3 fs-1">Forgot Password?</h1>
+          <div class="text-gray-500 fw-semibold fs-6">Enter email for reset your password</div>
         </div>
 
         @if (session()->has('success'))
@@ -39,7 +39,7 @@
           </button>
         </div>
         <div>
-          <a href="{{ route('login') }}" class="btn btn-light w-100">Kembali</a>
+          <a href="{{ route('login') }}" class="btn btn-light w-100">Back</a>
         </div>
       </form>
     </div>

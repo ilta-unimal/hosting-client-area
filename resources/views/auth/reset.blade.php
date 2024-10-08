@@ -8,8 +8,7 @@
         @csrf
         <div class="mb-11">
           <h1 class="text-gray-900 fw-bolder mb-3 fs-1">Reset Password</h1>
-          <div class="text-gray-500 fw-semibold fs-6">Masukan pasword baru untuk akun anda
-          </div>
+          <div class="text-gray-500 fw-semibold fs-6">Reset your password</div>
         </div>
 
         <div class="fv-row mb-8">
@@ -39,13 +38,13 @@
         </div>
         <div class="d-grid mb-3">
           <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
-            <span class="indicator-label">Ubah Password</span>
+            <span class="indicator-label">Change Password</span>
             <span class="indicator-progress" style="display: none;">Loading... 
             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
           </button>
         </div>
         <div>
-          <a href="{{ route('login') }}" class="btn btn-light w-100">Kembali</a>
+          <a href="{{ route('login') }}" class="btn btn-light w-100">Back</a>
         </div>
       </form>
     </div>

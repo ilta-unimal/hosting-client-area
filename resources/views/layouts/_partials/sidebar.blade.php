@@ -5,8 +5,8 @@
         <img alt="Logo" src="{{ asset('assets/media/logos/dishub.png') }}" data-kt-element="logo" class="h-30px" />
       </span>
       <span class="d-flex flex-column align-items-start flex-grow-1">
-        <span class="fs-5 fw-bold text-white text-uppercase" data-kt-element="title">E-Report</span>
-        <span class="fs-7 fw-bold text-gray-700 lh-sm" data-kt-element="desc">DISHUB Simalungun</span>
+        <span class="fs-5 fw-bold text-white text-uppercase" data-kt-element="title">Client Area</span>
+        <span class="fs-7 fw-bold text-gray-700 lh-sm" data-kt-element="desc">ILTA Service</span>
       </span>
     </div>
   </div>
@@ -32,7 +32,7 @@
                 <span class="path5"></span>
               </i>
             </span>
-            <span class="menu-title">Data Master</span>
+            <span class="menu-title">Layanan</span>
             <span class="menu-arrow"></span>
           </span>
           <div class="menu-sub menu-sub-accordion">
@@ -41,69 +41,26 @@
                 <span class="menu-bullet">
                   <span class="bullet bullet-dot"></span>
                 </span>
-                <span class="menu-title">Kecamatan</span>
+                <span class="menu-title">Iot Hosting</span>
               </a>
             </div>
             <div class="menu-item">
-              <a class="menu-link" href="dashboards/ecommerce.html">
+              <a class="menu-link" href="index.html">
                 <span class="menu-bullet">
                   <span class="bullet bullet-dot"></span>
                 </span>
-                <span class="menu-title">Kelurahan</span>
+                <span class="menu-title">MQTT</span>
               </a>
             </div>
             <div class="menu-item">
-              <a class="menu-link" href="dashboards/ecommerce.html">
+              <a class="menu-link" href="index.html">
                 <span class="menu-bullet">
                   <span class="bullet bullet-dot"></span>
                 </span>
-                <span class="menu-title">Jenis Lampu</span>
-              </a>
-            </div>
-            <div class="menu-item">
-              <a class="menu-link" href="dashboards/ecommerce.html">
-                <span class="menu-bullet">
-                  <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">Daya</span>
+                <span class="menu-title">Domain</span>
               </a>
             </div>
           </div>
-        </div>
-        <div class="menu-item">
-          <a href="apps/projects/activity.html" class="menu-link">
-            <span class="menu-icon">
-              <i class="ki-duotone ki-flag fs-2">
-                <span class="path1"></span>
-                <span class="path2"></span>
-              </i>
-            </span>
-            <span class="menu-title">Objek</span>
-          </a>
-        </div>
-        <div class="menu-item">
-          <a href="apps/projects/activity.html" class="menu-link">
-            <span class="menu-icon">
-              <i class="ki-duotone ki-wrench fs-2">
-                <span class="path1"></span>
-                <span class="path2"></span>
-              </i>
-            </span>
-            <span class="menu-title">Kerusakan</span>
-          </a>
-        </div>
-        <div class="menu-item">
-          <a href="apps/projects/activity.html" class="menu-link">
-            <span class="menu-icon">
-              <i class="ki-duotone ki-screen fs-2">
-                <span class="path1"></span>
-                <span class="path2"></span>
-                <span class="path3"></span>
-                <span class="path4"></span>
-              </i>
-            </span>
-            <span class="menu-title">Monitoring</span>
-          </a>
         </div>
         <div data-kt-menu-trigger="click" class="menu-item menu-accordion @if($title == 'Pengguna') here show @endif">
           <span class="menu-link">

@@ -12,7 +12,7 @@
       @csrf
       <div class="card-body border-top p-9">
         <div class="row mb-6">
-          <label class="col-lg-4 col-form-label required fw-semibold fs-6">Nama</label>
+          <label class="col-lg-4 col-form-label required fw-semibold fs-6">Name</label>
           <div class="col-lg-8 fv-row">
             <input type="text" name="name" class="form-control form-control-lg form-control-solid @error('name') is-invalid @enderror" placeholder="Nama" value="{{ old('name') ?? Auth::user()->name }}" />
             @error('name')
@@ -24,31 +24,21 @@
         </div>
         <div class="row mb-6">
           <label class="col-lg-4 col-form-label fw-semibold fs-6">
-            <span class="required">Role</span>
+            <span class="required">Phone Number</span>
           </label>
           <div class="col-lg-8 fv-row">
-            <input class="form-control form-control-lg form-control-solid" disabled value="{{ Auth::user()->role }}" />
-          </div>
-        </div>
-        <div class="row mb-6">
-          <label class="col-lg-4 col-form-label required fw-semibold fs-6">Akses</label>
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-lg-6 fv-row">
-                <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" disabled value="{{ Auth::user()->district->name ?? '-' }}" />
-                <small class="text-muted ps-2">Kecamatan</small>
-              </div>
-              <div class="col-lg-6 fv-row">
-                <input class="form-control form-control-lg form-control-solid" disabled value="{{ Auth::user()->village->name ?? '-' }}" />
-                <small class="text-muted ps-2">Kelurahan</small>
-              </div>
+            <input type="text" name="phone" class="form-control form-control-lg form-control-solid @error('phone') is-invalid @enderror" placeholder="Nama" value="{{ old('phone') ?? Auth::user()->phone }}" />
+            @error('phone')
+            <div class="text-sm text-danger">
+              {{ $message }}
             </div>
+            @enderror
           </div>
         </div>
       </div>
       <div class="card-footer d-flex justify-content-end py-6 px-9">
         <button type="submit" id="submit" class="btn btn-primary">
-          <span class="indicator-label">Simpan</span>
+          <span class="indicator-label">Save</span>
           <span class="indicator-progress" style="display: none;">Loading... 
           <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
         </button>
@@ -66,7 +56,7 @@
     <div class="card-body border-top p-9">
       <div class="d-flex flex-wrap align-items-center">
         <div id="kt_signin_email">
-          <div class="fs-6 fw-bold mb-1">Alamat Email</div>
+          <div class="fs-6 fw-bold mb-1">Email Address</div>
           <div class="fw-semibold text-gray-600">{{ Auth::user()->email }}</div>
         </div>
         <div id="kt_signin_email_edit" class="flex-row-fluid d-none">
@@ -98,7 +88,7 @@
             </div>
             <div class="d-flex">
               <button type="submit" id="submitSignin" class="btn btn-primary">
-                <span class="indicator-label">Simpan</span>
+                <span class="indicator-label">Save</span>
                 <span class="indicator-progress" style="display: none;">Loading... 
                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
               </button>
@@ -107,7 +97,7 @@
           </form>
         </div>
         <div id="kt_signin_email_button" class="ms-auto">
-          <button class="btn btn-light btn-active-light-primary">Ubah</button>
+          <button class="btn btn-light btn-active-light-primary">Change</button>
         </div>
       </div>
       <div class="separator separator-dashed my-6"></div>
@@ -145,7 +135,7 @@
             </div>
             <div class="d-flex">
               <button type="submit" id="submitPassword" class="btn btn-primary">
-                <span class="indicator-label">Simpan</span>
+                <span class="indicator-label">Save</span>
                 <span class="indicator-progress" style="display: none;">Loading... 
                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
               </button>             
@@ -154,7 +144,7 @@
           </form>
         </div>
         <div id="kt_signin_password_button" class="ms-auto">
-          <button class="btn btn-light btn-active-light-primary">Ubah</button>
+          <button class="btn btn-light btn-active-light-primary">Change</button>
         </div>
       </div>
     </div>
