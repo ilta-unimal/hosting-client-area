@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Service\IotHostingController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -21,6 +22,13 @@ Route::prefix('/auth')->middleware(['guest'])->group(function () {
     Route::post('/forget/{token}/reset', [AuthController::class, 'resetSubmit'])->name('reset.submit');
 });
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+Route::prefix('/service')->middleware(['auth'])->group(function () {
+    Route::prefix('/iot-hosting')->group(function () {
+        Route::get('/', [IotHostingController::class, 'index'])->name('service.iot-hosting');
+        Route::post('/payment/{id}', [IotHostingController::class, 'paymentSubmit'])->name('service.iot-hosting.payment');
+    });
+});
 
 Route::prefix('/profile')->middleware(['auth'])->group(function () {
     Route::get('/', [ProfileController::class, 'index'])->name('profile');

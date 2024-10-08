@@ -1,6 +1,6 @@
-<div id="kt_app_sidebar" class="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+<div id="kt_app_sidebar" class="app-sidebar flex-column" style="background-color: #0c0f38" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
   <div class="app-sidebar-header d-none d-lg-flex px-6 pt-8 pb-4" id="kt_app_sidebar_header">
-    <div class="btn btn-outline btn-custom btn-flex w-100">
+    <div class="btn btn-outline btn-custom btn-flex w-100" style="background-color: #0c0f38">
       <span class="d-flex flex-center flex-shrink-0 w-40px me-3">
         <img alt="Logo" src="{{ asset('assets/media/logos/dishub.png') }}" data-kt-element="logo" class="h-30px" />
       </span>
@@ -37,7 +37,7 @@
           </span>
           <div class="menu-sub menu-sub-accordion">
             <div class="menu-item">
-              <a class="menu-link active" href="index.html">
+              <a class="menu-link bg-primary" href="index.html">
                 <span class="menu-bullet">
                   <span class="bullet bullet-dot"></span>
                 </span>

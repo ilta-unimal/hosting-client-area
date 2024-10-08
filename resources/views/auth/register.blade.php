@@ -26,13 +26,17 @@
           @enderror
         </div>
         <div class="fv-row mb-8">
-          <input type="text" placeholder="Phone Number" name="phone" autocomplete="off" class="form-control bg-transparent @error('phone') is-invalid @enderror" value="{{ old('phone') }}" />
+          <div class="input-group mb-5">
+              <span class="input-group-text" id="basic-addon1">+62</span>
+              <input type="text" placeholder="Phone Number" name="phone" autocomplete="off" class="form-control bg-transparent @error('phone') is-invalid @enderror" value="{{ old('phone') }}" />
+          </div>
           @error('phone')
           <div class="text-sm text-danger">
             {{ $message }}
           </div>
           @enderror
         </div>
+        <!--end::Input group-->
         <div class="fv-row mb-8">
           <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent @error('email') is-invalid @enderror" value="{{ old('email') }}" />
           @error('email')
