@@ -2,18 +2,44 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Metronic - The World's #1 Selling Bootstrap Admin Template by KeenThemes</title>
+		<title>{{ $title }}</title>
 		<meta charset="utf-8" />
-		<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
-		<meta name="keywords" content="metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta property="og:locale" content="en_US" />
+		<meta
+		name="keywords"
+		content="hosting, cloud, service, vps, storage, mqtt, iot, unimal, malikussaleh, informatika"
+		/>
+		<meta name="author" content="ILTA UNIMAL" />
+		<meta name="description" content="Dapatkan Layanan Cloud Terjangkau dengan Kualitas Premium untuk Mendukung Kinerja Bisnis Anda. Solusi Andalan dengan Performa Maksimal!" />
+	
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:url" content="https://ilta-services.tech" />
+		<meta property="og:title" content="ILTA Services - Client Area " />
 		<meta property="og:type" content="article" />
-		<meta property="og:title" content="Metronic - The World's #1 Selling Bootstrap Admin Template by KeenThemes" />
-		<meta property="og:url" content="https://keenthemes.com/metronic" />
-		<meta property="og:site_name" content="Metronic by Keenthemes" />
-		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-		<link rel="shortcut icon" href="{{ asset('assets/media/logos/dishub.png') }}" />
+		<meta
+			property="og:description"
+			content="Dapatkan Layanan Cloud Terjangkau dengan Kualitas Premium untuk Mendukung Kinerja Bisnis Anda. Solusi Andalan dengan Performa Maksimal!"
+		/>
+		<meta property="og:locale" content="id_ID" />
+	
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="ILTA Services - Client Area " />
+		<meta
+			name="twitter:description"
+			content="Dapatkan Layanan Cloud Terjangkau dengan Kualitas Premium untuk Mendukung Kinerja Bisnis Anda. Solusi Andalan dengan Performa Maksimal!"
+		/>
+	
+		<!-- Additional SEO Meta Tags -->
+		<meta name="distribution" content="global" />
+		<meta name="revisit-after" content="7 days" />
+		<meta name="rating" content="general" />
+		<meta name="language" content="Indonesian" />
+		<meta name="geo.region" content="ID" />
+		<meta name="geo.placename" content="Lhokseumawe" />
+	
+		<!-- Canonical Tag -->
+		<link rel="canonical" href="https://ilta-services.tech" />
+		{{-- <link rel="shortcut icon" href="{{ asset('assets/media/logos/dishub.png') }}" /> --}}
 		<style>
 		.float{
 			position:fixed;

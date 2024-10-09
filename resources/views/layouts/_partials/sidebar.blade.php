@@ -83,18 +83,20 @@
             </div>
           </div>
         </div>
-        <div class="menu-item @if($title == 'User') here show @endif">
-          <a href="{{ route('user') }}" class="menu-link">
-            <span class="menu-icon">
-              <i class="ki-duotone ki-profile-circle fs-2">
-                <span class="path1"></span>
-                <span class="path2"></span>
-                <span class="path3"></span>
-              </i>
-            </span>
-            <span class="menu-title">User</span>
-          </a>
-        </div>
+        @if (Auth::user()->role == 'admin')
+          <div class="menu-item @if($title == 'User') here show @endif">
+            <a href="{{ route('user') }}" class="menu-link">
+              <span class="menu-icon">
+                <i class="ki-duotone ki-profile-circle fs-2">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                  <span class="path3"></span>
+                </i>
+              </span>
+              <span class="menu-title">User</span>
+            </a>
+          </div>
+        @endif
       </div>
     </div>
   </div>

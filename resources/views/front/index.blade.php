@@ -11,9 +11,41 @@
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
       <title>ILTA Services - Layanan Cloud Terjangkau, Performa Maksimal </title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
+      <meta
+      name="keywords"
+      content="hosting, cloud, service, vps, storage, mqtt, iot, unimal, malikussaleh, informatika"
+      />
+      <meta name="author" content="ILTA UNIMAL" />
+      <meta name="description" content="Dapatkan Layanan Cloud Terjangkau dengan Kualitas Premium untuk Mendukung Kinerja Bisnis Anda. Solusi Andalan dengan Performa Maksimal!" />
+    
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:url" content="https://ilta-services.tech" />
+      <meta property="og:title" content="ILTA Services - Layanan Cloud Terjangkau, Performa Maksimal " />
+      <meta property="og:type" content="article" />
+      <meta
+        property="og:description"
+        content="Dapatkan Layanan Cloud Terjangkau dengan Kualitas Premium untuk Mendukung Kinerja Bisnis Anda. Solusi Andalan dengan Performa Maksimal!"
+      />
+      <meta property="og:locale" content="id_ID" />
+    
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="ILTA Services - Layanan Cloud Terjangkau, Performa Maksimal " />
+      <meta
+        name="twitter:description"
+        content="Dapatkan Layanan Cloud Terjangkau dengan Kualitas Premium untuk Mendukung Kinerja Bisnis Anda. Solusi Andalan dengan Performa Maksimal!"
+      />
+    
+      <!-- Additional SEO Meta Tags -->
+      <meta name="distribution" content="global" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="rating" content="general" />
+      <meta name="language" content="Indonesian" />
+      <meta name="geo.region" content="ID" />
+      <meta name="geo.placename" content="Lhokseumawe" />
+    
+      <!-- Canonical Tag -->
+      <link rel="canonical" href="https://ilta-services.tech" />
       <!-- bootstrap css -->
       <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
       <!-- style css -->
@@ -21,7 +53,7 @@
       <!-- Responsive-->
       <link rel="stylesheet" href="{{ asset('front/css/responsive.css') }}">
       <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      {{-- <link rel="icon" href="images/fevicon.png" type="image/gif" /> --}}
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="{{ asset('front/css/jquery.mCustomScrollbar.min.css') }}">
       <!-- Tweaks for older IEs-->
