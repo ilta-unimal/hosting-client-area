@@ -29,7 +29,7 @@
           <div class="col-lg-8 fv-row mb-8">
             <div class="input-group mb-5">
                 <span class="input-group-text" id="basic-addon1">+62</span>
-                <input type="text" placeholder="Phone Number" name="phone" autocomplete="off" class="form-control  form-control-lg form-control-solid @error('phone') is-invalid @enderror" value="{{ old('phone') }}" />
+                <input type="text" placeholder="Phone Number" name="phone" autocomplete="off" class="form-control  form-control-lg form-control-solid @error('phone') is-invalid @enderror" value="{{ old('phone') ?? Auth::user()->phone }}" />
             </div>
             @error('phone')
             <div class="text-sm text-danger">

@@ -25,7 +25,19 @@
 
         @yield('content')
 
-				<div class="d-none d-lg-block d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center order-1 order-lg-2" style="background-image: url({{ asset('assets/media/illustrations/auth.png') }})">
+				 <div class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center order-1 order-lg-2" style="background-color: rgb(12, 15, 56);">
+					<div class="d-flex flex-column flex-center py-7 py-lg-15 px-5 px-md-15 w-100">          
+							<div class="mb-0 mb-lg-12">
+									<img alt="Logo" src="{{ asset('front/images/logo.png') }}" class="h-60px h-lg-50px"/>
+							</div>                
+							<img class="d-none d-lg-block mx-auto w-275px w-md-50 w-xl-500px mb-10 mb-lg-20" src="{{ asset('front/images/img.png') }}" alt=""/>                 
+							<h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7"> 
+									ILTA Service
+							</h1> 
+							<div class="d-none d-lg-block text-white fs-base text-center">
+								Dapatkan Layanan Cloud Terjangkau dengan Kualitas Premium <br> untuk Mendukung Kinerja Bisnis Anda. Solusi Andalan dengan Performa Maksimal!
+							</div>
+					</div>
 				</div>
 			</div>
 		</div>

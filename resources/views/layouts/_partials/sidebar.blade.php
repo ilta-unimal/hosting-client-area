@@ -1,11 +1,8 @@
 <div id="kt_app_sidebar" class="app-sidebar flex-column" style="background-color: #0c0f38" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
   <div class="app-sidebar-header d-none d-lg-flex px-6 pt-8 pb-4" id="kt_app_sidebar_header">
     <div class="btn btn-outline btn-custom btn-flex w-100" style="background-color: #0c0f38">
-      <span class="d-flex flex-center flex-shrink-0 w-40px me-3">
-        <img alt="Logo" src="{{ asset('assets/media/logos/dishub.png') }}" data-kt-element="logo" class="h-30px" />
-      </span>
       <span class="d-flex flex-column align-items-start flex-grow-1">
-        <span class="fs-5 fw-bold text-white text-uppercase" data-kt-element="title">Client Area</span>
+        <span class="fs-2 fw-bold text-white text-uppercase" data-kt-element="title">Client Area</span>
         <span class="fs-7 fw-bold text-gray-700 lh-sm" data-kt-element="desc">ILTA Service</span>
       </span>
     </div>
@@ -13,15 +10,15 @@
   <div class="app-sidebar-navs flex-column-fluid py-6" id="kt_app_sidebar_navs">
     <div id="kt_app_sidebar_navs_wrappers" class="hover-scroll-y my-2" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_header, #kt_app_sidebar_footer" data-kt-scroll-wrappers="#kt_app_sidebar_navs" data-kt-scroll-offset="5px">
       <div id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false" class="menu menu-column menu-rounded menu-sub-indention menu-active-bg">
-        <div class="menu-item">
-          <a href="apps/projects/activity.html" class="menu-link">
+        <div class="menu-item @if($title == 'Dashboard') here show @endif">
+          <a href="{{ route('dashboard') }}" class="menu-link">
             <span class="menu-icon">
               <i class="ki-duotone ki-home"></i>
             </span>
             <span class="menu-title">Dashboard</span>
           </a>
         </div>
-        <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion  @if($title == 'Service') here show @endif">
           <span class="menu-link">
             <span class="menu-icon">
               <i class="ki-duotone ki-external-drive fs-2">
@@ -37,7 +34,7 @@
           </span>
           <div class="menu-sub menu-sub-accordion">
             <div class="menu-item">
-              <a class="menu-link bg-primary" href="index.html">
+              <a class="menu-link  @if($subTitle == 'IOT Hosting') bg-primary @endif" href="{{ route('service.iot-hosting') }}">
                 <span class="menu-bullet">
                   <span class="bullet bullet-dot"></span>
                 </span>

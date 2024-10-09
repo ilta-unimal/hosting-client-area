@@ -23,10 +23,6 @@ return new class extends Migration
             $table->string('panel_url');
             $table->string('panel_username');
             $table->string('panel_password');
-            $table->string('db_url');
-            $table->string('db_name');
-            $table->string('db_username');
-            $table->string('db_password');
             $table->timestamps();
         });
     }

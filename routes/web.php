@@ -2,14 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Service\IotHostingController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('front.index');
 });
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::prefix('/auth')->middleware(['guest'])->group(function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -27,6 +29,8 @@ Route::prefix('/service')->middleware(['auth'])->group(function () {
     Route::prefix('/iot-hosting')->group(function () {
         Route::get('/', [IotHostingController::class, 'index'])->name('service.iot-hosting');
         Route::post('/payment/{id}', [IotHostingController::class, 'paymentSubmit'])->name('service.iot-hosting.payment');
+        Route::get('/create', [IotHostingController::class, 'create'])->name('service.iot-hosting.create');
+        Route::post('/create', [IotHostingController::class, 'store'])->name('service.iot-hosting.create.store');
     });
 });
 
