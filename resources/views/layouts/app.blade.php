@@ -14,6 +14,25 @@
 		<meta property="og:site_name" content="Metronic by Keenthemes" />
 		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
 		<link rel="shortcut icon" href="{{ asset('assets/media/logos/dishub.png') }}" />
+		<style>
+		.float{
+			position:fixed;
+			width:60px;
+			height:60px;
+			bottom:40px;
+			right:40px;
+			background-color:#25d366;
+			color:#FFF;
+			border-radius:50px;
+			text-align:center;
+			font-size:30px;
+			box-shadow: 2px 2px 3px #999;
+			z-index:100;
+		}
+		.my-float{
+			margin-top:16px;
+		}
+		</style>
 
     @include('layouts._partials.head')
 
@@ -46,6 +65,10 @@
 				</div>
 			</div>
 		</div>
+
+		<a href="https://wa.me/6281378065848" class="float" target="_blank">
+			<i class="ki-outline ki-whatsapp fs-2hx text-white d-flex justify-content-center align-items-center mt-4"></i>
+	 	</a>
 
     @include('layouts._partials.alert')
     @include('layouts._partials.foot')

@@ -1,13 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if (session()->has('payment'))
+<div class="alert alert-info d-flex flex-column flex-sm-row p-5 mb-10">
+  <i class="ki-duotone ki-shield-tick fs-2hx text-info me-4"><span class="path1"></span><span class="path2"></span></i>
+  <div class="d-flex flex-column text-info pe-0 pe-sm-10">
+      <h4 class="mb-2 text-info">Payment Successful</h4>
+      <p>The droplet <span class="fw-bold">{{ session('payment') }}.ilta-services.tech</span> has been successfully paid.<br>Your droplet will be activated shortly. The admin is currently verifying your payment.</p>
+  </div>
+  <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+      <i class="ki-duotone ki-cross fs-1 text-dark"><span class="path1"></span><span class="path2"></span></i>
+  </button>
+</div>
+@endif
+
 <div class="card mb-5 mb-xl-10">
   <div class="card-header border-0 cursor-pointer">
     <div class="card-title m-0">
       <h3 class="fw-bold m-0 pt-md-0 pt-5">Iot Hosting Droplets</h3>
     </div>
     <div>
-      <a href="" class="btn btn-primary mt-5">Create Droplets</a>
+      <a href="{{ route('service.iot-hosting.create') }}" class="btn btn-info mt-5">Create Droplets</a>
     </div>
   </div>
   <div>
@@ -20,106 +34,113 @@
                   <th class="min-w-100px">Status</th>
                   <th class="min-w-200px text-end">Action</th>
               </tr>
-          </thead>
+        </thead>
           <tbody>
-              @foreach ($droplets as $item)
-                <tr>
-                    <td>
-                      <a class="text-primary" href="https://{{ $item->domain }}" target="_blank">{{ $item->domain }}
-                        <i class="ki-outline ki-paper-clip text-primary"></i>
-                      </a>
-                    </td>
-                    <td>{{ $item->iotAccount->expired_date ?? '-' }}</td>
-                    <td>
-                      @if($item->iotPayment)
-                        @if($item->iotAccount)
-                          @if ($item->status)
-                              @if (date->now() > $item->expired_date)
-                                <span class="badge badge-light-danger">Expired</span>
-                              @else
-                                <span class="badge badge-light-success">Active</span>
-                              @endif
-                          @else
-                            <span class="badge badge-light-danger">Inactive</span>
-                          @endif
-                        @else
-                          <span class="badge badge-light-warning">Account Pending</span>
-                        @endif 
-                      @else
-                        <span class="badge badge-light-warning">Payment Pending</span>
-                      @endif
-                    </td>
-                    <td class="text-end">
-                      @if($item->iotPayment)
-                        @if($item->iotAccount)
-                        <a href="" class="btn btn-light-primary">Manage</a>
-                        @else
-                        -
-                        @endif
-                      @else
-                        <a href="" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#payment">Payment</a>
-                      @endif
-                    </td>
-                </tr>
-              @endforeach
+            @if ($droplets->isEmpty())
+            <tr>
+                <td colspan="4" class="text-center">No data available</td>
+            </tr>
+            @else
+                @foreach ($droplets as $item)
+                    <tr>
+                        <td>
+                            <a class="text-info" href="https://{{ $item->domain }}.ilta-services.tech" target="_blank">{{ $item->domain }}.ilta-services.tech
+                                <i class="ki-outline ki-paper-clip text-info"></i>
+                            </a>
+                        </td>
+                        <td>{{ $item->iotAccount->expired_date ?? '-' }}</td>
+                        <td>
+                            @if($item->iotPayment)
+                                @if($item->iotAccount)
+                                    @if ($item->is_active)
+                                        @if (now() > $item->iotAccount->expired_date)
+                                            <span class="badge badge-light-danger">Expired</span>
+                                        @else
+                                            <span class="badge badge-light-info">Active</span>
+                                        @endif
+                                    @else
+                                        <span class="badge badge-light-danger">Inactive</span>
+                                    @endif
+                                @else
+                                    <span class="badge badge-light-success">Account Pending</span>
+                                @endif 
+                            @else
+                                <span class="badge badge-light-warning">Payment Pending</span>
+                            @endif
+                        </td>
+                        <td class="text-end">
+                            @if($item->iotPayment)
+                                @if($item->iotAccount)
+                                    @if ($item->is_active)
+                                        @if (now() > $item->iotAccount->expired_date)
+                                            -
+                                        @else
+                                            <button data-bs-toggle="modal" data-bs-target="#manage{{$item->id}}" class="btn btn-info">Manage</button>
+                                        @endif
+                                    @else
+                                        -
+                                    @endif
+                                @else
+                                    -
+                                @endif
+                            @else
+                                <a href="{{ route('service.iot-hosting.payment', $item->id) }}" class="btn btn-sm btn-success">Payment</a>
+                            @endif
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
           </tbody>
       </table>
     </div>
   </div>
 </div>
-@endsection
 
 @foreach ($droplets as $item)
-  @if ($item->iotPayment === null)
-    <div class="modal fade" tabindex="-1" id="payment">
+  @if ($item->iotAccount)
+    <div class="modal fade" tabindex="-1" id="manage{{$item->id}}">
       <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
               <form action="{{ route('service.iot-hosting.payment', $item->id) }}" enctype="multipart/form-data" method="POST">
                 @csrf
                 <div class="modal-header">
-                    <h3 class="modal-title">Invoice</h3>
-                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                  <div>
+                    <h3 class="modal-title">Account Information</h3>
+                    <span>{{ $item->domain }}.ilta-services.tech</span>
+                  </div>
+                    <div class="btn btn-icon btn-sm btn-active-light-info ms-2" data-bs-dismiss="modal" aria-label="Close">
                         <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
                     </div>
                 </div>
                 <div class="modal-body">
                   <div class="table-responsive">
                     <table class="table table-row-dashed fw-normal">
-                      <span class="fw-bold fs-5">{{ $item->domain }}</span>
                       <tbody>
                         <tr>
-                          <td>I0T Hosting 3 Bulan</td>
+                          <td>Panel URL</td>
                           <td>:</td>
-                          <td>Rp. 25.000</td>
+                          <td><a href="{{$item->iotAccount->panel_url}}" target="_blank">{{$item->iotAccount->panel_url}}</a></td>
                         </tr>
                         <tr>
-                          <td>PPN (11%)</td>
+                          <td>Username</td>
                           <td>:</td>
                           <td>
-                            Rp. 2.750
+                            {{$item->iotAccount->panel_username}}
                           </td>
                         </tr>
-                        <tr class="border-top-2 border-gray">
-                          <td class="fw-bold">Total</td>
+                        <tr>
+                          <td>Password</td>
                           <td>:</td>
-                          <td class="fw-bold">
-                            Rp. 27.750
+                          <td>
+                            {{$item->iotAccount->panel_password}}
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                  </div>  
-                  <div class="my-10">
-                    <span for="exampleFormControlInput1" class="form-label">Pembayaran Melalui</span>
-                    <p class="text-gray-600">Bank Syariah Indonesia: <br> 7149587564 a.n Brucel Duta Samudera</p>
-                  </div>    
-                  <div class="mb-10">
-                    <label for="exampleFormControlInput1" class="required form-label">Upload Bukti Pembayaran</label>
-                    <input type="file" class="form-control form-control-solid" name="file"/>
-                  </div>          
+                  </div>         
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="{{$item->iotAccount->panel_url}}" target="_blank" type="submit" class="btn btn-info w-100">Open Panel Hosting</a>
                 </div>
               </form>
           </div>
@@ -127,32 +148,4 @@
     </div>
   @endif
 @endforeach
-
-
-@section('script')
-<script src="{{ asset('assets/js/custom/account/settings/signin-methods.js') }}"></script>
-<script>
-  document.getElementById('form').addEventListener('submit', function() {
-    var submitButton = document.getElementById('submit');
-    submitButton.querySelector('.indicator-label').style.display = 'none';
-    submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
-    submitButton.setAttribute('disabled', 'disabled');
-  });
-</script>
-<script>
-  document.getElementById('formSignin').addEventListener('submit', function() {
-    var submitButton = document.getElementById('submitSignin');
-    submitButton.querySelector('.indicator-label').style.display = 'none';
-    submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
-    submitButton.setAttribute('disabled', 'disabled');
-  });
-</script>
-<script>
-  document.getElementById('formPassword').addEventListener('submit', function() {
-    var submitButton = document.getElementById('submitPassword');
-    submitButton.querySelector('.indicator-label').style.display = 'none';
-    submitButton.querySelector('.indicator-progress').style.display = 'inline-block';
-    submitButton.setAttribute('disabled', 'disabled');
-  });
-</script>
 @endsection

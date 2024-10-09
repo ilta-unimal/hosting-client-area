@@ -28,7 +28,7 @@
           </label>
           <div class="col-lg-8 fv-row mb-8">
             <div class="input-group mb-5">
-                <span class="input-group-text" id="basic-addon1">+62</span>
+                <span class="input-group-text border-0" id="basic-addon1">+62</span>
                 <input type="text" placeholder="Phone Number" name="phone" autocomplete="off" class="form-control  form-control-lg form-control-solid @error('phone') is-invalid @enderror" value="{{ old('phone') ?? Auth::user()->phone }}" />
             </div>
             @error('phone')
@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="card-footer d-flex justify-content-end py-6 px-9">
-        <button type="submit" id="submit" class="btn btn-primary">
+        <button type="submit" id="submit" class="btn btn-info">
           <span class="indicator-label">Save</span>
           <span class="indicator-progress" style="display: none;">Loading... 
           <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -90,17 +90,17 @@
               </div>
             </div>
             <div class="d-flex">
-              <button type="submit" id="submitSignin" class="btn btn-primary">
+              <button type="submit" id="submitSignin" class="btn btn-info">
                 <span class="indicator-label">Save</span>
                 <span class="indicator-progress" style="display: none;">Loading... 
                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
               </button>
-              <button id="kt_signin_cancel" type="button" class="btn btn-color-gray-500 btn-active-light-primary px-6">Cancel</button>
+              <button id="kt_signin_cancel" type="button" class="btn btn-color-gray-500 btn-active-light-info px-6">Cancel</button>
             </div>
           </form>
         </div>
         <div id="kt_signin_email_button" class="ms-auto">
-          <button class="btn btn-light btn-active-light-primary">Change</button>
+          <button class="btn btn-light btn-active-light-info">Change</button>
         </div>
       </div>
       <div class="separator separator-dashed my-6"></div>
@@ -137,17 +137,17 @@
               </div>
             </div>
             <div class="d-flex">
-              <button type="submit" id="submitPassword" class="btn btn-primary">
+              <button type="submit" id="submitPassword" class="btn btn-info">
                 <span class="indicator-label">Save</span>
                 <span class="indicator-progress" style="display: none;">Loading... 
                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
               </button>             
-             <button id="kt_password_cancel" type="button" class="btn btn-color-gray-500 btn-active-light-primary px-6">Cancel</button>
+             <button id="kt_password_cancel" type="button" class="btn btn-color-gray-500 btn-active-light-info px-6">Cancel</button>
             </div>
           </form>
         </div>
         <div id="kt_signin_password_button" class="ms-auto">
-          <button class="btn btn-light btn-active-light-primary">Change</button>
+          <button class="btn btn-light btn-active-light-info">Change</button>
         </div>
       </div>
     </div>

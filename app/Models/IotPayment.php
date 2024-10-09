@@ -18,7 +18,7 @@ class IotPayment extends Model
         'payment_file',
     ];
 
-    public function district(): BelongsTo
+    public function iot(): BelongsTo
     {
         return $this->belongsTo(Iot::class);
     }

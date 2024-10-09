@@ -37,7 +37,7 @@
           @enderror
         </div>
         <div class="d-grid mb-3">
-          <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
+          <button type="submit" id="kt_sign_in_submit" class="btn btn-info">
             <span class="indicator-label">Change Password</span>
             <span class="indicator-progress" style="display: none;">Loading... 
             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>

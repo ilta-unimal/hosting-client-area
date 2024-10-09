@@ -75,6 +75,8 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return redirect()->route('register.district')->withInput()->withErrors($validator);
         }
+
+        
         $user = new User();
         $user->phone  = $request->phone;
         $user->name  = $request->name;
@@ -147,6 +149,6 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('home');
     }
 }

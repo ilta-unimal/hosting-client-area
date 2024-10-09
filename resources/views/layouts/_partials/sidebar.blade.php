@@ -29,12 +29,12 @@
                 <span class="path5"></span>
               </i>
             </span>
-            <span class="menu-title">Layanan</span>
+            <span class="menu-title">Services</span>
             <span class="menu-arrow"></span>
           </span>
           <div class="menu-sub menu-sub-accordion">
             <div class="menu-item">
-              <a class="menu-link  @if($subTitle == 'IOT Hosting') bg-primary @endif" href="{{ route('service.iot-hosting') }}">
+              <a class="menu-link @if($subTitle == 'IOT Hosting') bg-info @endif" href="{{ route('service.iot-hosting') }}">
                 <span class="menu-bullet">
                   <span class="bullet bullet-dot"></span>
                 </span>
@@ -42,7 +42,15 @@
               </a>
             </div>
             <div class="menu-item">
-              <a class="menu-link" href="index.html">
+              <a class="menu-link @if($subTitle == 'Shared Hosting') bg-info @endif" href="{{ route('service.shared-hosting') }}">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Shared Hosting</span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link @if($subTitle == 'MQTT') bg-info @endif" href="{{ route('service.mqtt') }}">
                 <span class="menu-bullet">
                   <span class="bullet bullet-dot"></span>
                 </span>
@@ -50,17 +58,33 @@
               </a>
             </div>
             <div class="menu-item">
-              <a class="menu-link" href="index.html">
+              <a class="menu-link @if($subTitle == 'VPS Hosting') bg-info @endif" href="{{ route('service.vps-hosting') }}">
                 <span class="menu-bullet">
                   <span class="bullet bullet-dot"></span>
                 </span>
-                <span class="menu-title">Domain</span>
+                <span class="menu-title">VPS Hosting</span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link @if($subTitle == 'Cloud Hosting') bg-info @endif" href="{{ route('service.cloud-hosting') }}">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Cloud Hosting</span>
+              </a>
+            </div>
+            <div class="menu-item">
+              <a class="menu-link @if($subTitle == 'Cloud Storage') bg-info @endif" href="{{ route('service.cloud-storage') }}">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Cloud Storage</span>
               </a>
             </div>
           </div>
         </div>
-        <div data-kt-menu-trigger="click" class="menu-item menu-accordion @if($title == 'Pengguna') here show @endif">
-          <span class="menu-link">
+        <div class="menu-item @if($title == 'User') here show @endif">
+          <a href="{{ route('user') }}" class="menu-link">
             <span class="menu-icon">
               <i class="ki-duotone ki-profile-circle fs-2">
                 <span class="path1"></span>
@@ -68,27 +92,8 @@
                 <span class="path3"></span>
               </i>
             </span>
-            <span class="menu-title">Pengguna</span>
-            <span class="menu-arrow"></span>
-          </span>
-          <div class="menu-sub menu-sub-accordion">
-            <div class="menu-item">
-              <a class="menu-link @if($subTitle == 'Pending') active @endif" href="{{ route('user.pending') }}">
-                <span class="menu-bullet">
-                  <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">Pending</span>
-              </a>
-            </div>
-            <div class="menu-item">
-              <a class="menu-link @if($subTitle == 'Aktif') active @endif" href="{{ route('user.active') }}">
-                <span class="menu-bullet">
-                  <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">Aktif</span>
-              </a>
-            </div>
-          </div>
+            <span class="menu-title">User</span>
+          </a>
         </div>
       </div>
     </div>
@@ -96,21 +101,21 @@
   <div class="app-sidebar-footer d-flex flex-stack px-11 pb-10" id="kt_app_sidebar_footer">
     <div class="">
       <div class="cursor-pointer symbol symbol-circle symbol-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-overflow="true" data-kt-menu-placement="top-start">
-        <img src="https://ui-avatars.com/api/?bold=true&name={{ Auth::user()->name }}" alt="image" />
+        <img src="https://ui-avatars.com/api/?background=F8F5FF&color=7239EA&bold=true&name={{ Auth::user()->name }}" alt="image" />
       </div>
       <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
         <div class="menu-item px-3">
           <div class="menu-content d-flex align-items-center px-3">
             <div class="d-flex flex-column">
               <div class="fw-bold d-flex align-items-center fs-5">{{ Auth::user()->name }} 
-              <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">{{ Auth::user()->role }}</span></div>
-              <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">{{ Auth::user()->email }}</a>
+              <span class="badge badge-light-info fw-bold fs-8 px-2 py-1 ms-2">{{ Auth::user()->role }}</span></div>
+              <a href="#" class="fw-semibold text-muted text-hover-info fs-7">{{ Auth::user()->email }}</a>
             </div>
           </div>
         </div>
         <div class="separator my-2"></div>
         <div class="menu-item px-5">
-          <a href="{{ route('profile') }}" class="menu-link px-5">My Profile</a>
+          <a href="{{ route('profile') }}" class="menu-link text-active-info px-5">My Profile</a>
         </div>
         <div class="menu-item px-5">
           <a href="{{ route('logout') }}" class="menu-link px-5">Logout</a>

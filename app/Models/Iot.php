@@ -17,8 +17,7 @@ class Iot extends Model
 
     protected $fillable = [
         'domain',
-        'expired_date',
-        'status'
+        'is_active'
     ];
 
     public function iotAccount(): HasOne
@@ -26,7 +25,7 @@ class Iot extends Model
         return $this->hasOne(IotAccount::class);
     }
 
-    public function IotPayment(): HasOne
+    public function iotPayment(): HasOne
     {
         return $this->hasOne(IotPayment::class);
     }

@@ -19,7 +19,7 @@ class IotAccount extends Model
         'panel_url',
         'panel_username',
         'panel_password',
-        'expired_date',
+        'expired_date'
     ];
 
     public function district(): BelongsTo

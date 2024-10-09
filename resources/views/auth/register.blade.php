@@ -54,14 +54,14 @@
           @enderror
         </div>
         <div class="d-grid mb-10">
-          <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
+          <button type="submit" id="kt_sign_in_submit" class="btn btn-info">
             <span class="indicator-label">Sign-up</span>
             <span class="indicator-progress" style="display: none;">Loading... 
             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
           </button>
         </div>
         <div class="text-gray-500 text-center fw-semibold fs-6">Already registered with us? 
-        <a href="{{ route('login') }}" class="link-primary" >Sign-in</a></div>
+        <a href="{{ route('login') }}" class="link-info" >Sign-in</a></div>
       </form>
     </div>
   </div>

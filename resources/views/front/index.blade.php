@@ -72,7 +72,7 @@
                               <li class="nav-item bg-transparent">
                                  <div class="dropdown">
                                     <button class="nav-link dropdown-toggle bg-transparent" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                       <img src="https://ui-avatars.com/api/?bold=true&name={{ Auth::user()->name }}" class="rounded-circle w-25 mr-2" alt="image" />
+                                       <img src="https://ui-avatars.com/api/?background=F8F5FF&color=7239EA&bold=true&name={{ Auth::user()->name }}" class="rounded-circle w-25 mr-2" style="width: 35px !important" alt="image" />
                                        {{ Auth::user()->name }}
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -171,9 +171,9 @@
                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                      <div class="Services-box">
                          <i><img src="{{ asset('front/images/service3.png') }}" alt="#" /></i>
-                         <h3>Domain Registration</h3>
-                         <p>Daftarkan nama domain Anda dengan mudah dan cepat, serta dapatkan dukungan penuh untuk setiap langkahnya.</p>
-                     </div>
+                         <h3>MQTT</h3>
+                         <p>Layanan MQTT untuk Mendukung Konektivitas Perangkat IoT Anda. dengan Stabilitas dan Kecepatan Optimal!</p>
+                        </div>
                  </div>
                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                      <div class="Services-box">

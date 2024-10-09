@@ -299,14 +299,14 @@ button {
 
 .navigation.navbar-dark .navbar-nav .nav-link:focus,
 .navigation.navbar-dark .navbar-nav .nav-link:hover {
-     color: #fdd430;
+     color: #7239EA;
 }
 
 .navigation.navbar-dark .navbar-nav .active>.nav-link,
 .navigation.navbar-dark .navbar-nav .nav-link.active,
 .navigation.navbar-dark .navbar-nav .nav-link.show,
 .navigation.navbar-dark .navbar-nav .show>.nav-link {
-     color: #fdd430;
+     color: #7239EA;
 }
 
 
@@ -348,7 +348,7 @@ button {
 }
 
 .text-bg span {
-     color: #fdd430;
+     color: #7239EA;
      font-size: 40px;
      line-height: 35px;
      font-weight: bold;

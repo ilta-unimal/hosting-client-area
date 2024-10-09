@@ -61,17 +61,17 @@
         </div>
         <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
           <div></div>
-          <a href="{{ route('forgot') }}" class="link-primary">Forgot Password ?</a>
+          <a href="{{ route('forgot') }}" class="link-info">Forgot Password ?</a>
         </div>
         <div class="d-grid mb-10">
-          <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
+          <button type="submit" id="kt_sign_in_submit" class="btn btn-info">
             <span class="indicator-label">Sign-in</span>
             <span class="indicator-progress" style="display: none;">Loading... 
             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
           </button>
         </div>
         <div class="text-gray-500 text-center fw-semibold fs-6">Not a member yet?  
-        <a href="{{ route('register') }}" class="link-primary">Create a New Account</a></div>
+        <a href="{{ route('register') }}" class="link-info">Create a New Account</a></div>
       </form>
     </div>
   </div>

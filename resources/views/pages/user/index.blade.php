@@ -4,39 +4,25 @@
 <div class="card mb-5 mb-xl-10">
     <div class="card-body border-top p-9">
       <form id="filter-form" class="mb-3">
-        <div class="row mb-3">
-          <div class="col">
-            <input type="text" class="form-control form-control-solid" name="q" placeholder="Search" />
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h1>User</h1>
           </div>
-        </div>
-        <div class="row mb-3">
-          <div class="col">
-            <select id="kecamatan" class="form-select form-select-solid" data-control="select2" name="district" data-placeholder="Pilih Kecamatan">
-              <option></option>
-              @if (Auth::user()->role == 'kecamatan')
-                <option value="{{ Auth::user()->district->id }}" data-id="{{ Auth::user()->district->code }}">{{ Auth::user()->district->name }}</option>
-              @else
-                @foreach ($district as $item)
-                <option value="{{ $item->id }}" data-id="{{ $item->code }}">{{ $item->name }}</option>
-                @endforeach
-              @endif
-            </select>
+          <div class="d-flex">
+            <div class="me-5">
+              <input type="text" class="form-control w-full form-control-solid" name="q" placeholder="Search" />
+            </div>
+            <div>
+              <button type="button" class="btn btn-light-info" id="reset-button">
+                <i class="ki-duotone ki-arrows-circle fs-3">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
+                Reset
+              </button>
+              <button type="submit" class="btn btn-info"><i class="ki-outline ki-filter fs-3"></i> Terapkan</button>
+            </div>
           </div>
-          <div class="col">
-            <select name="village" id="kelurahan" class="form-select form-select-solid" data-control="select2" data-placeholder="Pilih Kelurahan">
-              <!-- Populate this select with options dynamically based on the district selected -->
-            </select>
-          </div>
-        </div>
-        <div class="flex justify-content-end text-end">
-          <button type="button" class="btn btn-light-primary" id="reset-button">
-            <i class="ki-duotone ki-arrows-circle fs-3">
-              <span class="path1"></span>
-              <span class="path2"></span>
-            </i>
-            Reset
-          </button>
-          <button type="submit" class="btn btn-primary"><i class="ki-outline ki-filter fs-3"></i> Terapkan</button>
         </div>
       </form>
       <div class="table-responsive position-relative">
@@ -47,8 +33,6 @@
           <thead>
             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
               <th>Pengguna</th>
-              <th>Kecamatan</th>
-              <th>Kelurahan</th>
               <th>Role</th>
               <th>Created At</th>
               <th class="text-end">Action</th>
@@ -109,7 +93,7 @@
       formData.push({ name: 'page', value: page });
 
       $.ajax({
-        url: '{{ route('user.pending.data') }}',
+        url: '{{ route('user.data') }}',
         data: formData,
         success: function(response) {
           updateTable(response);
@@ -130,8 +114,6 @@
         tbody.append('<tr><td colspan="6" class="text-center">No data available in table</td></tr>');
       } else {
         $.each(data.data, function(index, user) {
-            let approveUrl = '{{ route('user.pending.approve', ':id') }}'.replace(':id', user.id);
-            let destroyUrl = '{{ route('user.destroy', ':id') }}'.replace(':id', user.id);
             tbody.append(`
                 <tr>
                     <td class="align-middle">
@@ -145,8 +127,6 @@
                             </div>
                         </div>
                     </td>
-                    <td class="align-middle">${user.district ? user.district.name : '-'}</td>
-                    <td class="align-middle">${user.village ? user.village.name : '-'}</td>
                     <td class="align-middle">
                         <div class="badge badge-light fw-bold">${user.role}</div>
                     </td>
@@ -159,20 +139,6 @@
                             minute: '2-digit',
                             hour12: false
                         })}
-                    </td>
-                    <td class="align-middle text-end">
-                        <button id="${approveUrl}" class="btn-confirm btn btn-light-success btn-icon btn-sm">
-                            <i id="${approveUrl}" class="btn-confirm ki-duotone ki-check fs-2"></i>
-                        </button>
-                         <Button id="${destroyUrl}" class="btn-del btn btn-light-danger btn-icon btn-sm">
-                          <i class="btn-del ki-duotone ki-trash fs-2" id="${destroyUrl}">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                            <span class="path3"></span>
-                            <span class="path4"></span>
-                            <span class="path5"></span>
-                          </i>
-                        </Button>
                     </td>
                 </tr>
             `);
@@ -236,35 +202,6 @@
       fetchUsers();
     });
 
-    // Handle kecamatan change
-    $('#kecamatan').on('change', function() {
-      let district_code = $(this).find(':selected').data('id');
-      $.ajax({
-        url: `/api/kecamatan/${district_code}`,
-        method: "GET",
-        success: function(response) {
-          let $kelurahan = $('#kelurahan');
-          $kelurahan.empty().append('<option value="">Pilih Kelurahan</option>');
-          $.each(response.data, function(index, item) {
-            $kelurahan.append(`<option value="${item.id}">${item.name}</option>`);
-          });
-          $kelurahan.select2({
-            placeholder: "Pilih Kelurahan"
-          });
-        },
-        error: function(xhr) {
-          console.error("Request failed: " + xhr.status);
-        }
-      });
-    });
-
-    // Initialize Select2 for the elements
-    $('#kecamatan').select2({
-      placeholder: "Pilih Kecamatan"
-    });
-    $('#kelurahan').select2({
-      placeholder: "Pilih Kecamatan terlebih dahulu"
-    });
 
     // Initial fetch
     fetchUsers();
