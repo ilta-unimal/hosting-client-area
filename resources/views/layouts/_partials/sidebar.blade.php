@@ -18,72 +18,97 @@
             <span class="menu-title">Dashboard</span>
           </a>
         </div>
-        <div data-kt-menu-trigger="click" class="menu-item menu-accordion  @if($title == 'Service') here show @endif">
-          <span class="menu-link">
-            <span class="menu-icon">
-              <i class="ki-duotone ki-external-drive fs-2">
-                <span class="path1"></span>
-                <span class="path2"></span>
-                <span class="path3"></span>
-                <span class="path4"></span>
-                <span class="path5"></span>
-              </i>
+        @if (Auth::user()->role == 'user')
+          <div data-kt-menu-trigger="click" class="menu-item menu-accordion  @if($title == 'Service') here show @endif">
+            <span class="menu-link">
+              <span class="menu-icon">
+                <i class="ki-duotone ki-external-drive fs-2">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                  <span class="path3"></span>
+                  <span class="path4"></span>
+                  <span class="path5"></span>
+                </i>
+              </span>
+              <span class="menu-title">Services</span>
+              <span class="menu-arrow"></span>
             </span>
-            <span class="menu-title">Services</span>
-            <span class="menu-arrow"></span>
-          </span>
-          <div class="menu-sub menu-sub-accordion">
-            <div class="menu-item">
-              <a class="menu-link @if($subTitle == 'IOT Hosting') bg-info @endif" href="{{ route('service.iot-hosting') }}">
-                <span class="menu-bullet">
-                  <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">Iot Hosting</span>
-              </a>
-            </div>
-            <div class="menu-item">
-              <a class="menu-link @if($subTitle == 'Shared Hosting') bg-info @endif" href="{{ route('service.shared-hosting') }}">
-                <span class="menu-bullet">
-                  <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">Shared Hosting</span>
-              </a>
-            </div>
-            <div class="menu-item">
-              <a class="menu-link @if($subTitle == 'MQTT') bg-info @endif" href="{{ route('service.mqtt') }}">
-                <span class="menu-bullet">
-                  <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">MQTT</span>
-              </a>
-            </div>
-            <div class="menu-item">
-              <a class="menu-link @if($subTitle == 'VPS Hosting') bg-info @endif" href="{{ route('service.vps-hosting') }}">
-                <span class="menu-bullet">
-                  <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">VPS Hosting</span>
-              </a>
-            </div>
-            <div class="menu-item">
-              <a class="menu-link @if($subTitle == 'Cloud Hosting') bg-info @endif" href="{{ route('service.cloud-hosting') }}">
-                <span class="menu-bullet">
-                  <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">Cloud Hosting</span>
-              </a>
-            </div>
-            <div class="menu-item">
-              <a class="menu-link @if($subTitle == 'Cloud Storage') bg-info @endif" href="{{ route('service.cloud-storage') }}">
-                <span class="menu-bullet">
-                  <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">Cloud Storage</span>
-              </a>
+            <div class="menu-sub menu-sub-accordion">
+              <div class="menu-item">
+                <a class="menu-link @if($subTitle == 'IOT Hosting') bg-info @endif" href="{{ route('service.iot-hosting') }}">
+                  <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                  </span>
+                  <span class="menu-title">Iot Hosting</span>
+                </a>
+              </div>
+              <div class="menu-item">
+                <a class="menu-link @if($subTitle == 'Shared Hosting') bg-info @endif" href="{{ route('service.shared-hosting') }}">
+                  <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                  </span>
+                  <span class="menu-title">Shared Hosting</span>
+                </a>
+              </div>
+              <div class="menu-item">
+                <a class="menu-link @if($subTitle == 'MQTT') bg-info @endif" href="{{ route('service.mqtt') }}">
+                  <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                  </span>
+                  <span class="menu-title">MQTT</span>
+                </a>
+              </div>
+              <div class="menu-item">
+                <a class="menu-link @if($subTitle == 'VPS Hosting') bg-info @endif" href="{{ route('service.vps-hosting') }}">
+                  <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                  </span>
+                  <span class="menu-title">VPS Hosting</span>
+                </a>
+              </div>
+              <div class="menu-item">
+                <a class="menu-link @if($subTitle == 'Cloud Hosting') bg-info @endif" href="{{ route('service.cloud-hosting') }}">
+                  <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                  </span>
+                  <span class="menu-title">Cloud Hosting</span>
+                </a>
+              </div>
+              <div class="menu-item">
+                <a class="menu-link @if($subTitle == 'Cloud Storage') bg-info @endif" href="{{ route('service.cloud-storage') }}">
+                  <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                  </span>
+                  <span class="menu-title">Cloud Storage</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        @endif
         @if (Auth::user()->role == 'admin')
+          <div data-kt-menu-trigger="click" class="menu-item menu-accordion  @if($title == 'Client') here show @endif">
+            <span class="menu-link">
+              <span class="menu-icon">
+                <i class="ki-duotone ki-address-book fs-2">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                  <span class="path3"></span>
+                </i>
+              </span>
+              <span class="menu-title">Client</span>
+              <span class="menu-arrow"></span>
+            </span>
+            <div class="menu-sub menu-sub-accordion">
+              <div class="menu-item">
+                <a class="menu-link @if($subTitle == 'IOT Hosting') bg-info @endif" href="{{ route('client.iot-hosting.pending') }}">
+                  <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                  </span>
+                  <span class="menu-title">Iot Hosting</span>
+                </a>
+              </div>
+            </div>
+          </div>
           <div class="menu-item @if($title == 'User') here show @endif">
             <a href="{{ route('user') }}" class="menu-link">
               <span class="menu-icon">

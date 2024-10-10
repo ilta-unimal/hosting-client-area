@@ -5,8 +5,10 @@
         <i class="ki-outline ki-abstract-14 fs-2"></i>
       </div>
       <a href="index.html">
-        <img alt="Logo" src="{{ asset('assets/media/logos/dishub.png') }}" class="h-30px theme-light-show" />
-        <img alt="Logo" src="{{ asset('assets/media/logos/dishub.png') }}" class="h-30px theme-dark-show" />
+        <span class="d-flex flex-column align-items-start flex-grow-1">
+          <span class="fs-2 fw-bold text-gray-900 text-uppercase" data-kt-element="title">Client Area</span>
+          <span class="fs-7 fw-bold text-gray-700 lh-sm" data-kt-element="desc">ILTA Service</span>
+        </span>
       </a>
     </div>
     <div class="d-flex flex-stack flex-lg-row-fluid" id="kt_app_header_wrapper">

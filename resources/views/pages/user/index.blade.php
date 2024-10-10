@@ -32,7 +32,7 @@
         <table id="users-table" class="table table-row-dashed fs-6 gy-5">
           <thead>
             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-              <th>Pengguna</th>
+              <th>User</th>
               <th>Role</th>
               <th>Created At</th>
               <th class="text-end">Action</th>

@@ -96,7 +96,7 @@
 		</div>
 
 		<a href="https://wa.me/6281378065848" class="float" target="_blank">
-			<i class="ki-outline ki-whatsapp fs-2hx text-white d-flex justify-content-center align-items-center mt-4"></i>
+			<i class="ki-outline ki-whatsapp fs-2hx text-white d-flex justify-content-center align-items-center mt-lg-4 mt-6"></i>
 	 	</a>
 
     @include('layouts._partials.alert')

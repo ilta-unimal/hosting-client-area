@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Client\IotClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Service\IotHostingController;
@@ -73,6 +74,15 @@ Route::prefix('/service')->middleware(['auth'])->group(function () {
         ];
         return view('pages.maintenace', $data);
     })->name('service.cloud-storage');
+});
+
+Route::prefix('/client')->middleware(['auth'])->group(function () {
+    Route::prefix('/iot-hosting')->group(function () {
+        Route::get('/pending', [IotClientController::class, 'pending'])->name('client.iot-hosting.pending');
+        Route::post('/{id}/approve', [IotClientController::class, 'approve'])->name('client.iot-hosting.approve');
+        Route::post('/{id}/update', [IotClientController::class, 'update'])->name('client.iot-hosting.update');
+        Route::get('/active', [IotClientController::class, 'active'])->name('client.iot-hosting.active');
+    });
 });
 
 Route::prefix('/profile')->middleware(['auth'])->group(function () {

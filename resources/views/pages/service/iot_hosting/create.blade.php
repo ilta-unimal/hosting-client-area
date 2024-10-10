@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="px-lg-20">
-  <div class="card mb-5 mb-xl-10 p-10">
+  <div class="card mb-5 mb-xl-10 p-lg-10">
     <div class="card-header border-0 cursor-pointer">
       <div class="card-title m-0">
         <h3 class="fw-bold m-0 pt-md-0 pt-5">Create droplet Iot Hosting</h3>
