@@ -104,7 +104,7 @@
                     <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
                 </div>
             </div>
-            <div class="modal-body">
+          <div class="modal-body">
               <div class="mb-3">
                   <label for="exampleFormControlInput1" class="required form-label">Expired Date</label>
                   <input type="date" class="form-control form-control-solid" name="expired" 
