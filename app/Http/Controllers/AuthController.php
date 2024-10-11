@@ -73,7 +73,7 @@ class AuthController extends Controller
             'password' => 'required|string|min:8',
         ]);
         if ($validator->fails()) {
-            return redirect()->route('register.district')->withInput()->withErrors($validator);
+            return redirect()->route('register')->withInput()->withErrors($validator);
         }
 
         
